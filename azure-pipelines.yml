@@ -20,6 +20,7 @@ stages:
             provider: 'azurerm'
             command: 'init'
             workingDirectory: '$(System.DefaultWorkingDirectory)/Environment/Dev'
+            commandOptions: '--upgrade'
             backendServiceArm: 'Pipeline'
             backendAzureRmOverrideSubscriptionID: '009fad33-c09c-4841-af38-57dd79870d40'
             backendAzureRmResourceGroupName: 'ajay1122'
