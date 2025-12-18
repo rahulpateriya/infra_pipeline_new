@@ -10,7 +10,7 @@ module "vnet" {
 }
 module "snet" {
   source     = "../../Module/azurerm_subnet"
-  depends_on = [module.vnet]
+  depends_on = [module.vnet, module.rg]
   snet       = var.snet
 
 }
@@ -21,7 +21,7 @@ module "pip" {
 }
 module "nic" {
   source     = "../../Module/azurerm_network_interface"
-  depends_on = [module.pip, module.snet]
+  depends_on = [module.pip, module.snet, module.rg]
   nic        = var.nic
 }
 module "kv" {
@@ -31,7 +31,7 @@ module "kv" {
 }
 module "vm" {
   source     = "../../Module/azurerm_virtual_machine"
-  depends_on = [module.nic, module.kv]
+  depends_on = [module.nic, module.kv, module.rg]
   vm         = var.vm
 }
 
