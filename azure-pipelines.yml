@@ -1,6 +1,6 @@
 trigger: none
 
-pool: ek_agent
+pool: Default
 
 stages:
   - stage: initial
