@@ -27,13 +27,13 @@ vnet = {
 snet = {
   snet1 = {
     name                 = "frontend-subnet1"
-    virtual_network_name = "zenai-vnet1"
+    virtual_network_name = "zenai-vnet"
     resource_group_name  = "zenai-rg"
     address_prefixes     = ["10.0.1.0/26"]
   }
   snet2 = {
     name                 = "backend-subnet2"
-    virtual_network_name = "zenai-vnet1"
+    virtual_network_name = "zenai-vnet"
     resource_group_name  = "zenai-rg"
     address_prefixes     = ["10.0.2.0/26"]
   }
