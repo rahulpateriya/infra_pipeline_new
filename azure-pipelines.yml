@@ -56,6 +56,7 @@ stages:
             provider: 'azurerm'
             command: 'init'
             workingDirectory: '$(System.DefaultWorkingDirectory)/Environment/Dev'
+            commandOptions: '--upgrade'
             backendAzureRmUseEntraIdForAuthentication: false
             backendServiceArm: 'Pipeline'
             backendAzureRmOverrideSubscriptionID: '009fad33-c09c-4841-af38-57dd79870d40'
@@ -97,6 +98,7 @@ stages:
             provider: 'azurerm'
             command: 'init'
             workingDirectory: '$(System.DefaultWorkingDirectory)/Environment/Dev'
+            commandOptions: '--upgrade'
             backendAzureRmUseEntraIdForAuthentication: false
             backendServiceArm: 'Pipeline'
             backendAzureRmOverrideSubscriptionID: '009fad33-c09c-4841-af38-57dd79870d40'
