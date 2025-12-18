@@ -1,0 +1,112 @@
+trigger: none
+
+pool: ek_agent
+
+stages:
+  - stage: initial
+    displayName: "init-fmt-validate"
+    jobs:
+      - job: initial
+        displayName: "init-fmt-validate"
+        steps:
+        - task: TerraformInstaller@1
+          displayName: terraform install
+          inputs:
+            terraformVersion: 'latest'
+
+        - task: TerraformTask@5
+          displayName: init
+          inputs:
+            provider: 'azurerm'
+            command: 'init'
+            workingDirectory: '$(System.DefaultWorkingDirectory)/Environment/Dev'
+            backendServiceArm: 'Pipeline'
+            backendAzureRmOverrideSubscriptionID: '009fad33-c09c-4841-af38-57dd79870d40'
+            backendAzureRmResourceGroupName: 'ajay1122'
+            backendAzureRmStorageAccountName: 'ajaystg1234'
+            backendAzureRmContainerName: 'ajaycont'
+            backendAzureRmKey: 'rahul.terraform.tfstate'
+
+        - task: TerraformTask@5
+          displayName: validate
+          inputs:
+            provider: 'azurerm'
+            command: 'validate'
+            workingDirectory: '$(System.DefaultWorkingDirectory)/Environment/Dev'
+
+        - task: TerraformTask@5
+          displayName: fmt
+          inputs:
+            provider: 'azurerm'
+            command: 'custom'
+            commandOptions: 'fmt -recursive'
+            outputTo: 'console'
+            environmentServiceNameAzureRM: 'Pipeline'
+
+  - stage: plan
+    displayName: plan
+    jobs:
+      - job: plan
+        displayName: "plan"
+        steps:  
+        - task: TerraformTask@5
+          displayName: init
+          inputs:
+            provider: 'azurerm'
+            command: 'init'
+            workingDirectory: '$(System.DefaultWorkingDirectory)/Environment/Dev'
+            backendServiceArm: 'Pipeline'
+            backendAzureRmOverrideSubscriptionID: '009fad33-c09c-4841-af38-57dd79870d40'
+            backendAzureRmResourceGroupName: 'ajay1122'
+            backendAzureRmStorageAccountName: 'ajaystg1234'
+            backendAzureRmContainerName: 'ajaycont'
+            backendAzureRmKey: 'rahul.terraform.tfstate'
+
+        - task: TerraformTask@5
+          displayName: plan
+          inputs:
+            provider: 'azurerm'
+            command: 'plan'
+            workingDirectory: '$(System.DefaultWorkingDirectory)/Environment/Dev'
+            environmentServiceNameAzureRM: 'Pipeline'
+
+  - stage: manual_validation
+    jobs:
+      - job: "manual_validation"
+        displayName: "manual_validation"
+        pool: server
+        steps:
+        - task: ManualValidation@1
+          displayName: manual_validation
+          inputs:
+            notifyUsers: 'rahulpateriya287@gmail.com'
+            approvers: 'rahulpateriya287@gmail.com'
+            instructions: 'Hi Kindly approve the job'
+
+  - stage: apply
+    displayName: apply
+    jobs:
+      - job: apply
+        displayName: "apply"
+        steps:  
+        - task: TerraformTask@5
+          displayName: init
+          inputs:
+            provider: 'azurerm'
+            command: 'init'
+            workingDirectory: '$(System.DefaultWorkingDirectory)/Environment/Dev'
+            backendServiceArm: 'Pipeline'
+            backendAzureRmOverrideSubscriptionID: '009fad33-c09c-4841-af38-57dd79870d40'
+            backendAzureRmResourceGroupName: 'ajay1122'
+            backendAzureRmStorageAccountName: 'ajaystg1234'
+            backendAzureRmContainerName: 'ajaycont'
+            backendAzureRmKey: 'rahul.terraform.tfstate'
+
+        - task: TerraformTask@5
+          displayName: apply
+          inputs:
+            provider: 'azurerm'
+            command: 'apply'
+            workingDirectory: '$(System.DefaultWorkingDirectory)/Environment/Dev'
+            environmentServiceNameAzureRM: 'Pipeline'
+
