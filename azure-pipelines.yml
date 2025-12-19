@@ -26,9 +26,9 @@ stages:
             commandOptions: '--upgrade'
             backendServiceArm: 'Pipeline'
             backendAzureRmOverrideSubscriptionID: '009fad33-c09c-4841-af38-57dd79870d40'
-            backendAzureRmResourceGroupName: 'ajay1122'
-            backendAzureRmStorageAccountName: 'ajaystg1234'
-            backendAzureRmContainerName: 'ajaycont'
+            backendAzureRmResourceGroupName: 'allIndiarg'
+            backendAzureRmStorageAccountName: 'allindiasa'
+            backendAzureRmContainerName: 'kuchbhicontainer'
             backendAzureRmKey: 'rahul.terraform.tfstate'
 
         - task: TerraformTask@5
@@ -63,9 +63,9 @@ stages:
             backendAzureRmUseEntraIdForAuthentication: false
             backendServiceArm: 'Pipeline'
             backendAzureRmOverrideSubscriptionID: '009fad33-c09c-4841-af38-57dd79870d40'
-            backendAzureRmResourceGroupName: 'ajay1122'
-            backendAzureRmStorageAccountName: 'ajaystg1234'
-            backendAzureRmContainerName: 'ajaycont'
+            backendAzureRmResourceGroupName: 'allIndiarg'
+            backendAzureRmStorageAccountName: 'allindiasa'
+            backendAzureRmContainerName: 'kuchbhicontainer'
             backendAzureRmKey: 'rahul.terraform.tfstate'
 
         - task: TerraformTask@5
@@ -105,9 +105,9 @@ stages:
             backendAzureRmUseEntraIdForAuthentication: false
             backendServiceArm: 'Pipeline'
             backendAzureRmOverrideSubscriptionID: '009fad33-c09c-4841-af38-57dd79870d40'
-            backendAzureRmResourceGroupName: 'ajay1122'
-            backendAzureRmStorageAccountName: 'ajaystg1234'
-            backendAzureRmContainerName: 'ajaycont'
+            backendAzureRmResourceGroupName: 'allIndiarg'
+            backendAzureRmStorageAccountName: 'allindiasa'
+            backendAzureRmContainerName: 'kuchbhicontainer'
             backendAzureRmKey: 'rahul.terraform.tfstate'
 
         - task: TerraformTask@5
