@@ -110,8 +110,8 @@ vm = {
     name_rg       = "zenai-rg"
     location      = "Korea Central"
     vm_size       = "Standard_D2s_v3"
-    name_username = "username-secret"
-    name_password = "password-secret"
+    name_username = "username-secret9"
+    name_password = "password-secret9"
     name_nic      = "zenaivm-nic"
     name_kv       = "rajkeyvault12459876"
   }
