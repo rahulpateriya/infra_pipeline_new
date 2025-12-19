@@ -26,13 +26,13 @@ vnet = {
 
 snet = {
   snet1 = {
-    name                 = "frontend-subnet1"
+    name                 = "frontend-subnet"
     virtual_network_name = "zenai-vnet"
     resource_group_name  = "zenai-rg"
     address_prefixes     = ["10.0.1.0/26"]
   }
   snet2 = {
-    name                 = "backend-subnet2"
+    name                 = "backend-subnet"
     virtual_network_name = "zenai-vnet"
     resource_group_name  = "zenai-rg"
     address_prefixes     = ["10.0.2.0/26"]
@@ -47,7 +47,7 @@ nic = {
     name_ip                       = "zenips"
     private_ip_address_allocation = "Dynamic"
     name_pip                      = "zenai-vm-pip"
-    name_snet                     = "frontend-subnet"
+    snet_front                     = "frontend-subnet"
     name_vnet                     = "zenai-vnet"
     name_nsg                      = "zenai-nsg"
   }
