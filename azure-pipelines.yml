@@ -44,6 +44,20 @@ stages:
             outputTo: 'console'
             environmentServiceNameAzureRM: 'Pipeline'
 
+  - stage: Scan
+    displayName: Scan
+    jobs:
+      - job: Scan
+        displayName: "Scan"
+        steps:
+          - task: tfsec@1
+            displayName: scanning
+            condition: ne(variables['skipTfsec'], 'true')
+            inputs:
+              version: 'v1.26.0'
+              dir: '$(System.DefaultWorkingDirectory)/'
+
+
   - stage: plan
     displayName: plan
     jobs:
