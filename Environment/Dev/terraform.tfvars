@@ -120,7 +120,7 @@ vm = {
 nsg-nic-assoc = {
   nsg-nic-assoc1 = {
     name_nsg           = "zenai-nsg"
-    name_rg            = "zenai-rg"
+    resource_group_name            = "zenai-rg"
     name_nic           = "zenaivm-nic"
     name_security_rule = "sec"
   }
