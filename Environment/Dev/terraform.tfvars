@@ -47,7 +47,7 @@ nic = {
     name_ip                       = "zenips"
     private_ip_address_allocation = "Dynamic"
     name_pip                      = "zenai-vm-pip"
-    snet_front                     = "frontend-subnet"
+    name_snet                     = "frontend-subnet"
     name_vnet                     = "zenai-vnet"
     name_nsg                      = "zenai-nsg"
   }
